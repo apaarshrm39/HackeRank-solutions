@@ -1,0 +1,25 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import sys
+import re
+str1=str(sys.stdin.readline())
+str2=str(sys.stdin.readline())
+m=re.search(str2,str1)
+r=re.compile(str2)
+#print([[m.start(),m.start()+len(str2)-1]for m in r.finditr(str1)])
+l=len(str2)
+l2=len(str1)
+counter=0
+str3=""
+lst=[]
+l3=l2-l
+for i in range(l3):
+ str3=''
+ for j in range(i,i+l):
+    str3=str3+str1[j]
+    if len(str3)==l:
+      if str3==str2:
+          print("("+str(i)+", "+str(i+l-1)+")")
+          counter=counter+1
+if(counter==0):
+    print("(-1, -1)")
+
