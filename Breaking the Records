@@ -1,0 +1,41 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the breakingRecords function below.
+def breakingRecords(scores):
+    highest_val = scores[0]
+    lowest_val = scores[0]
+    count_high = 0
+    count_low = 0
+    result = []
+    for element in scores:
+        if element > highest_val:
+            count_high = count_high + 1
+            highest_val = element
+        elif element < lowest_val:
+            count_low = count_low + 1
+            lowest_val = element
+    result.append(count_high)
+    result.append(count_low)
+    return result
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    scores = list(map(int, input().rstrip().split()))
+
+    result = breakingRecords(scores)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
