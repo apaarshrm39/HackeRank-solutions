@@ -1,0 +1,24 @@
+
+
+# Complete the getNode function below.
+
+#
+# For your reference:
+#
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+def getNode(head, positionFromTail):
+    nodes=0
+    temp=head
+    while(temp.next!=None):
+        temp=temp.next
+        nodes+=1
+    pos=nodes-positionFromTail
+    for i in range(0,pos):
+        head=head.next
+    return head.data
+
+
