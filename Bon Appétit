@@ -1,0 +1,36 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the bonAppetit function below.
+def bonAppetit(bill, k, b):
+    paid=0000000000000000000000000000000000000000000
+    for i in bill:
+        if (i!=bill[k]):
+            paid=(paid+i)
+    rpaid=(paid//2)
+    if (rpaid==b):
+        result=print("Bon Appetit")
+    else: 
+        result=print(b-rpaid)
+    return result
+
+
+
+
+if __name__ == '__main__':
+    nk = input().rstrip().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    bill = list(map(int, input().rstrip().split()))
+
+    b = int(input().strip())
+
+    bonAppetit(bill, k, b)
