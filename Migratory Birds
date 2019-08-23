@@ -1,0 +1,39 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+import array
+# Complete the migratoryBirds function below.
+def migratoryBirds(arr):
+    na=[]
+    nna=[]
+    for i in arr:
+        if i not in na:
+            na.append(i)
+    for j in na:
+        counter=0
+        for k in arr:
+            if j==k:
+                counter=counter+1
+        nna.append(counter)
+    index=nna.index(max(nna))
+    return na[index]
+
+
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    arr_count = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = migratoryBirds(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
