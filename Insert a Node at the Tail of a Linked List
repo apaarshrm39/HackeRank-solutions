@@ -1,0 +1,36 @@
+
+
+// Complete the insertNodeAtTail function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
+    SinglyLinkedListNode *ptr,*temp;
+    ptr=(SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode*));
+    ptr->data=data;
+    if(ptr==NULL)
+    {cout<<"overflow";}
+    else{
+        if(head==NULL){
+            ptr->next=NULL;
+            head=ptr;
+        }
+        else{
+            temp=head;
+            while(temp->next!=NULL){
+                temp=temp->next;
+            }
+        temp->next=ptr;
+        ptr->next=NULL;
+        }
+    }
+return head;
+}
+
