@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class SparseArrays {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int N=Integer.parseInt(in.nextLine());
+        Map<String,Integer> al=new HashMap<String,Integer>();
+        for(int i=0;i<N;i++){
+            String str=in.nextLine();
+            Integer ix=al.get(str);
+            if(ix==null){
+                ix=1;
+            }else{
+                ix++;
+            }
+            al.put(str, ix);
+            
+        }
+        int Q=Integer.parseInt(in.nextLine());
+        for(int i=0;i<Q;i++){
+            String q=in.nextLine();
+            Integer ix=al.get(q);
+            if(ix!=null){
+                System.out.println(ix);
+            }else{
+                System.out.println(0);
+            }
+        }
+    }
+}
