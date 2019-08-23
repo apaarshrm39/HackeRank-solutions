@@ -1,2 +1,3 @@
 # HackeRank-solutions
-Solutions for hacker Rank questions in Python
+Solutions for hacker Rank questions in Various languages but mostly in Python.
+happy coding!!!
