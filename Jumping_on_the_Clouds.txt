@@ -1,0 +1,52 @@
+"""
+Aerith is playing a cloud hopping game. In this game, there are sequentially numbered clouds that can be thunderheads or cumulus clouds. Her character must jump from cloud to cloud until it reaches the start again.
+
+To play, Aerith is given an array of clouds,  and an energy level . She starts from  and uses  unit of energy to make a jump of size  to cloud . If Aerith lands on a thundercloud, , her energy () decreases by  additional units. The game ends when Aerith lands back on cloud .
+
+Given the values of , , and the configuration of the clouds as an array , can you determine the final value of  after the game ends?
+
+For example, give  and , the indices of her path are . Her energy level reduces by  for each jump to . She landed on one thunderhead at an additional cost of  energy units. Her final energy level is .
+
+Note: Recall that  refers to the modulo operation. In this case, it serves to make the route circular. If Aerith is at  and jumps , she will arrive at .
+"""
+
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the jumpingOnClouds function below.
+def jumpingOnClouds(c, k):
+    l=len(c)
+    e=100
+    i=0
+    while True:
+        if c[(i+k)%l]==0:
+            e=e-1
+        elif c[(i+k)%l]==1:
+            e=e-3
+        if(((i+k)%l)==0):
+            break
+        i=i+k
+    return e
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nk = input().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    c = list(map(int, input().rstrip().split()))
+
+    result = jumpingOnClouds(c, k)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
